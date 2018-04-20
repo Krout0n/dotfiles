@@ -1,0 +1,30 @@
+[[plugins]]
+# deoplete-clang
+repo = 'zchee/deoplete-clang'
+
+[[plugins]]
+repo = 'Valloric/YouCompleteMe'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'suan/vim-instant-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'aharisu/vim_goshrepl'
+on_ft = 'scheme'
+
+[[plugins]]
+repo = 'aharisu/vim-gdev'
+on_ft = 'scheme'

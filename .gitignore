@@ -1,0 +1,4 @@
+nvim/repos/*
+.DS_Store
+.vscode/*
+nvim/dein/repo*
