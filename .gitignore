@@ -3,4 +3,5 @@ nvim/.cache/*
 .DS_Store
 .vscode/*
 nvim/dein/repo*
-*/configstore/*
+nvim/configstore/*
+*configstore/*
