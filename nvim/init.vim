@@ -1,43 +1,42 @@
-" プラグインが実際にインストールされるディレクトリ
+"dein Scripts-----------------------------
+
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
 " dein.vim がなければ github から落としてくる
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+	endif
+	execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
+"nnoremap d "_d
 
-if dein#load_state($HOME . '/.config/nvim/dein')
+" Required:
+if dein#load_state(s:dein_dir)
 
-  " XDG base direcory compartible
   let g:dein#cache_directory = $HOME . '/.cache/dein'
 
-  " dein begin
-  call dein#begin($HOME . '/.config/nvim/dein')
+  call dein#begin($HOME . '/dotfiles/nvim/dein')
 
- " プラグインリストを収めた TOML ファイル
- " 予め TOML ファイル（後述）を用意しておく
- let s:toml_dir  = $HOME . '/.config/nvim/dein/toml' 
- let s:toml      = s:toml_dir . '/dein.toml'
- let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+  let s:toml_dir  = $HOME . '/dotfiles/nvim/dein/toml' 
+  let s:toml      = s:toml_dir . '/dein.toml'
+  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
 
- " TOML を読み込み、キャッシュしておく
- call dein#load_toml(s:toml,      {'lazy': 0})
- call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-
-  " Required:
   call dein#end()
   call dein#save_state()
 endif
+
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+ 
 if dein#check_install()
-  call dein#install()
+ call dein#install()
 endif
+
+"End dein Scripts-------------------------
 
 filetype plugin indent on
 
@@ -61,10 +60,10 @@ set tabstop=2
 set shiftwidth=2
 let g:deoplete#enable_at_startup = 1
 let g:ale_completion_enabled = 1
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>^a
-noremap <C-e> <Esc>$a
-noremap <C-a> <Esc>^a
+inoremap <C-e> <Esc>$
+inoremap <C-a> <Esc>^
+noremap <C-e> <Esc>$
+noremap <C-a> <Esc>^
 let NERDTreeShowHidden = 1
 autocmd VimEnter * execute 'NERDTree'
 let g:vim_markdown_folding_disabled = 1
@@ -113,4 +112,14 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
+nnoremap <Space><Space> i<space><esc>
+set ttyfast                                      " ターミナル：ターミナル接続を高速にする
+set t_Co=256
+noremap <Space>y 0v$hy
+noremap oo o<esc>
+let g:tigris#enabled = 1
+let g:tigris#on_the_fly_enabled = 1
+let g:tigris#delay = 300
+nnoremap x "_x
+nnoremap D "_D
 

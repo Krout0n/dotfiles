@@ -28,3 +28,15 @@ on_ft = 'scheme'
 [[plugins]]
 repo = 'aharisu/vim-gdev'
 on_ft = 'scheme'
+
+[[plugins]]
+repo = 'othree/yajs.vim''
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'billyvg/tigris.nvim'
+on_ft = ['javascript', 'javascript.jsx']
+hook_post_update = '''
+  let g:dein#plugin.build = './install.sh'
+'''
+
